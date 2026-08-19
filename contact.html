@@ -9,15 +9,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/navigation.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/variables.css?v=2">
+  <link rel="stylesheet" href="css/reset.css?v=2">
+  <link rel="stylesheet" href="css/base.css?v=2">
+  <link rel="stylesheet" href="css/layout.css?v=2">
+  <link rel="stylesheet" href="css/components.css?v=2">
+  <link rel="stylesheet" href="css/navigation.css?v=2">
+  <link rel="stylesheet" href="css/sections.css?v=2">
+  <link rel="stylesheet" href="css/footer.css?v=2">
+  <link rel="stylesheet" href="css/responsive.css?v=2">
+  <style>
+    /* Critical inline mobile overrides — cache-proof */
+    @media (max-width: 768px) {
+      .nav__cta-btn { display: none !important; }
+      .nav__links { display: none !important; }
+      .nav__inner { height: 64px !important; padding: 0 16px !important; }
+      .nav__logo { font-size: 18px !important; gap: 8px !important; }
+      .hero, .work-hero, .contact-hero, .resources-hero, .agency-hero { padding-top: 88px !important; overflow: visible !important; }
+      .hero__inner { display: flex !important; flex-direction: column !important; }
+      .hero__title { font-size: clamp(28px, 7.5vw, 42px) !important; line-height: 1.14 !important; word-break: normal !important; overflow-wrap: break-word !important; }
+      .hero__text { font-size: 14px !important; max-width: 100% !important; }
+      .hero__actions { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+      .hero__btn-consult { width: 100% !important; justify-content: center !important; }
+      .hero__visual { position: relative !important; width: 100% !important; height: auto !important; transform: none !important; }
+      .hero__stat-card, .hero__traffic-card { position: relative !important; width: 100% !important; height: auto !important; right: auto !important; left: auto !important; top: auto !important; bottom: auto !important; }
+      .hero__arch-block, .hero__trend-circle { display: none !important; }
+      .container { padding: 0 16px !important; max-width: 100% !important; overflow: hidden !important; }
+    }
+  </style>
 </head>
 <body class="contact-page">
 
