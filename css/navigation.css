@@ -233,3 +233,34 @@
   border-top: 1px solid var(--color-gray-200);
 }
 
+
+/* Mobile Header Safety Overrides */
+@media (max-width: 768px) {
+  .nav__inner {
+    height: 64px;
+    padding: 0 16px;
+  }
+  .nav__links {
+    display: none !important;
+  }
+  .nav__cta-btn {
+    display: none !important;
+  }
+  .nav__hamburger {
+    display: flex !important;
+  }
+  .nav__logo {
+    font-size: 18px;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .nav__logo-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .nav__notify-btn {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+}
