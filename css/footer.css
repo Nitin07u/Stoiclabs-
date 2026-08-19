@@ -124,6 +124,13 @@
   gap: 16px;
 }
 
+.footer__powered-row {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 8px;
+}
+
 .footer__powered {
   width: 152px;
   height: 28px;
@@ -156,5 +163,6 @@
   object-fit: contain;
   display: block;
 }
+
 
 
