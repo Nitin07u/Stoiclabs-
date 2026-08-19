@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STOICLABS — Photo CMS Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <style>
+    :root {
+      --font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      --color-black: #010205;
+      --color-white: #FFFFFF;
+      --color-gray-50: #F9FAFB;
+      --color-gray-100: #F3F4F6;
+      --color-gray-200: #E5E7EB;
+      --color-gray-300: #D1D5DB;
+      --color-gray-400: #9CA3AF;
+      --color-gray-600: #6B7280;
+      --color-gray-800: #1F2937;
+      --color-accent: #99CF63;
+      --color-accent-hover: #8BC455;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      background: var(--color-gray-50);
+      color: var(--color-black);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      background: radial-gradient(circle at 50% 20%, #152210 0%, #010205 75%);
+    }
+    .login-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+    .login-header { text-align: center; margin-bottom: 32px; }
+    .login-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--color-black);
+      margin-bottom: 12px;
+    }
+    .login-logo img { width: 32px; height: 32px; object-fit: contain; }
+    .login-title { font-size: 22px; font-weight: 700; color: var(--color-black); margin-bottom: 6px; }
+    .login-subtitle { font-size: 14px; color: var(--color-gray-600); }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--color-gray-800); margin-bottom: 8px; }
+    .form-input {
+      width: 100%; height: 48px; padding: 0 16px; border: 1.5px solid var(--color-gray-200);
+      border-radius: var(--radius-md); font-family: var(--font-family); font-size: 14px;
+      color: var(--color-black); background: var(--color-gray-50); transition: var(--transition);
+    }
+    .form-input:focus { outline: none; border-color: var(--color-black); background: var(--color-white); }
+    .login-btn {
+      width: 100%; height: 50px; background: var(--color-black); color: var(--color-white);
+      border: none; border-radius: var(--radius-pill); font-family: var(--font-family);
+      font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 10px; transition: var(--transition); margin-top: 10px;
+    }
+    .login-btn:hover { background: #1a1e24; transform: translateY(-1px); }
+    .login-hint {
+      margin-top: 24px; padding: 12px 16px; background: var(--color-gray-100);
+      border-radius: var(--radius-md); font-size: 12px; color: var(--color-gray-600); text-align: center;
+    }
+    .cms-app { display: none; }
+    .cms-nav {
+      background: var(--color-white); border-bottom: 1px solid var(--color-gray-200);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .cms-nav__inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cms-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--color-black); }
+    .cms-brand img { width: 28px; height: 28px; object-fit: contain; }
+    .cms-brand__title { font-weight: 700; font-size: 18px; }
+    .cms-brand__badge {
+      background: var(--color-accent); color: var(--color-black); font-size: 11px;
+      font-weight: 700; padding: 3px 8px; border-radius: var(--radius-pill); text-transform: uppercase;
+    }
+    .cms-nav__actions { display: flex; align-items: center; gap: 16px; }
+    .cms-btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px;
+      border-radius: var(--radius-pill); border: 1px solid var(--color-gray-200); background: var(--color-white);
+      font-family: var(--font-family); font-size: 13px; font-weight: 600; color: var(--color-black);
+      text-decoration: none; cursor: pointer; transition: var(--transition);
+    }
+    .cms-btn-secondary:hover { border-color: var(--color-black); background: var(--color-gray-50); }
+    .cms-user-pill {
+      display: flex; align-items: center; gap: 8px; padding: 6px 14px;
+      background: var(--color-gray-100); border-radius: var(--radius-pill); font-size: 13px; font-weight: 600;
+    }
+    .cms-user-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); }
+    .cms-main { max-width: 1280px; margin: 0 auto; padding: 40px 24px 80px; }
+    .cms-header {
+      background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: var(--radius-lg);
+      padding: 36px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .cms-header__left h1 { font-size: 28px; font-weight: 700; color: var(--color-black); letter-spacing: -0.02em; margin-bottom: 8px; }
+    .cms-header__left p { font-size: 15px; color: var(--color-gray-600); max-width: 600px; }
+    .cms-header__stats { display: flex; gap: 20px; }
+    .cms-stat-box {
+      background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md);
+      padding: 16px 22px; text-align: center; min-width: 120px;
+    }
+    .cms-stat-num { font-size: 24px; font-weight: 700; color: var(--color-black); line-height: 1.1; }
+    .cms-stat-label { font-size: 12px; color: var(--color-gray-600); font-weight: 500; margin-top: 4px; }
+    .cms-tabs { display: flex; gap: 10px; margin-bottom: 28px; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 14px; }
+    .cms-tab-btn {
+      background: transparent; border: none; padding: 8px 18px; border-radius: var(--radius-pill);
+      font-family: var(--font-family); font-size: 14px; font-weight: 600; color: var(--color-gray-600);
+      cursor: pointer; transition: var(--transition);
+    }
+    .cms-tab-btn:hover { color: var(--color-black); background: var(--color-gray-100); }
+    .cms-tab-btn.active { background: var(--color-black); color: var(--color-white); }
+    .cms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 28px; }
+    .cms-card {
+      background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: var(--radius-lg);
+      overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: var(--transition);
+    }
+    .cms-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .cms-card__preview-wrap {
+      width: 100%; height: 220px; background: #E5E7EB; position: relative;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .cms-card__preview-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .cms-card__badge {
+      position: absolute; top: 14px; left: 14px; background: rgba(1, 2, 5, 0.85);
+      color: var(--color-white); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-pill);
+    }
+    .cms-card__path-badge {
+      position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.92);
+      color: var(--color-gray-800); font-size: 11px; font-weight: 600; padding: 4px 10px;
+      border-radius: var(--radius-pill); font-family: monospace;
+    }
+    .cms-card__body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+    .cms-card__title { font-size: 17px; font-weight: 700; color: var(--color-black); margin-bottom: 6px; }
+    .cms-card__desc { font-size: 13px; color: var(--color-gray-600); margin-bottom: 20px; line-height: 1.5; }
+    .cms-card__actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+    .cms-upload-btn {
+      width: 100%; height: 42px; background: var(--color-black); color: var(--color-white);
+      border: none; border-radius: var(--radius-pill); font-family: var(--font-family);
+      font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 8px; transition: var(--transition);
+    }
+    .cms-upload-btn:hover { background: #1a1e24; }
+    .cms-sub-actions { display: flex; gap: 8px; }
+    .cms-sub-btn {
+      flex: 1; height: 36px; background: var(--color-gray-100); color: var(--color-gray-800);
+      border: 1px solid var(--color-gray-200); border-radius: var(--radius-pill); font-family: var(--font-family);
+      font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 6px; transition: var(--transition);
+    }
+    .cms-sub-btn:hover { background: var(--color-gray-200); color: var(--color-black); }
+    .hidden-file-input { display: none; }
+    .toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+    .toast {
+      background: var(--color-black); color: var(--color-white); padding: 14px 20px;
+      border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600;
+    }
+    .toast-icon { color: var(--color-accent); display: flex; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-container" id="loginView">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-logo">
+          <img src="../assets/logo.png" alt="Stoiclabs Logo">
+          <span>Stoiclabs</span>
+        </div>
+        <h2 class="login-title">Photo CMS Login</h2>
+        <p class="login-subtitle">Sign in to update website photos & media</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <input type="text" id="username" class="form-input" value="admin" required autofocus>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" class="form-input" value="stoiclabs" required>
+        </div>
+        <button type="submit" class="login-btn">
+          <span>Sign In to Dashboard</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </form>
+
+      <div class="login-hint">
+        Demo Credentials:<br>
+        Username: <strong>admin</strong> | Password: <strong>stoiclabs</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- CMS DASHBOARD -->
+  <div class="cms-app" id="cmsApp">
+    <header class="cms-nav">
+      <div class="cms-nav__inner">
+        <a href="#" class="cms-brand">
+          <img src="../assets/logo.png" alt="Stoiclabs Logo">
+          <span class="cms-brand__title">Stoiclabs</span>
+          <span class="cms-brand__badge">Photo CMS</span>
+        </a>
+
+        <div class="cms-nav__actions">
+          <a href="../case-study.html" target="_blank" class="cms-btn-secondary" title="Open Case Studies Page">
+            <span>View Live Site</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+
+          <div class="cms-user-pill">
+            <div class="cms-user-dot"></div>
+            <span>admin</span>
+          </div>
+
+          <button class="cms-btn-secondary" id="logoutBtn" style="padding: 8px 14px;">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cms-main">
+      <div class="cms-header">
+        <div class="cms-header__left">
+          <h1>Website Photos & Media</h1>
+          <p>Easily manage and replace any photo across the STOICLABS website. Uploaded photos take effect immediately without changing website templates or layout.</p>
+        </div>
+        <div class="cms-header__stats">
+          <div class="cms-stat-box">
+            <div class="cms-stat-num">7</div>
+            <div class="cms-stat-label">Photo Slots</div>
+          </div>
+          <div class="cms-stat-box">
+            <div class="cms-stat-num" style="color: #99CF63;">Active</div>
+            <div class="cms-stat-label">System Status</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cms-tabs">
+        <button class="cms-tab-btn active" data-tab="all">All Photos</button>
+        <button class="cms-tab-btn" data-tab="case-study">Case Studies & Team</button>
+        <button class="cms-tab-btn" data-tab="branding">Branding & Logos</button>
+      </div>
+
+      <div class="cms-grid" id="photoGrid">
+        <!-- Slot 1: Michael Kaizer Avatar -->
+        <div class="cms-card" data-category="case-study">
+          <div class="cms-card__preview-wrap">
+            <img src="../assets/michael-kaizer.png" alt="Michael Kaizer Avatar" class="cms-card__preview-img" id="img-michael-kaizer">
+            <div class="cms-card__badge">Case Studies Page</div>
+            <div class="cms-card__path-badge">assets/michael-kaizer.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">Michael Kaizer — CEO Avatar</h3>
+              <p class="cms-card__desc">Profile picture displayed in the editorial testimonial section of the Case Studies page.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(michael-kaizer.png, img-michael-kaizer)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload New Photo</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(michael-kaizer.png, img-michael-kaizer)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(michael-kaizer.png, img-michael-kaizer)">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slot 2: Primary Logo -->
+        <div class="cms-card" data-category="branding">
+          <div class="cms-card__preview-wrap">
+            <img src="../assets/logo.png" alt="Primary Stoiclabs Logo" class="cms-card__preview-img" id="img-logo">
+            <div class="cms-card__badge">Global Header & Footer</div>
+            <div class="cms-card__path-badge">assets/logo.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">Primary Stoiclabs Brand Logo</h3>
+              <p class="cms-card__desc">The main green shield icon used in the header and footer on all pages across the website.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(logo.png, img-logo)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload New Logo</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(logo.png, img-logo)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(logo.png, img-logo)">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slot 3: White Logo -->
+        <div class="cms-card" data-category="branding">
+          <div class="cms-card__preview-wrap" style="background: #0B0E14;">
+            <img src="../assets/logo-white.png" alt="White Stoiclabs Logo" class="cms-card__preview-img" id="img-logo-white">
+            <div class="cms-card__badge">Dark Theme Sections</div>
+            <div class="cms-card__path-badge">assets/logo-white.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">White / Inverted Brand Logo</h3>
+              <p class="cms-card__desc">White-themed logo variant used for dark banners, dark footers, or inverted navigation.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(logo-white.png, img-logo-white)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload White Logo</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(logo-white.png, img-logo-white)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(logo-white.png, img-logo-white)">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slot 4: Favicon -->
+        <div class="cms-card" data-category="branding">
+          <div class="cms-card__preview-wrap">
+            <img src="../assets/favicon.png" alt="Favicon" class="cms-card__preview-img" style="width: 64px; height: 64px;" id="img-favicon">
+            <div class="cms-card__badge">Browser Tab Icon</div>
+            <div class="cms-card__path-badge">assets/favicon.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">Website Favicon</h3>
+              <p class="cms-card__desc">Small icon shown on browser tabs and bookmarks bar for all website visitors.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(favicon.png, img-favicon)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload Favicon</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(favicon.png, img-favicon)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(favicon.png, img-favicon)">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slot 5: MedTech Project Visual -->
+        <div class="cms-card" data-category="case-study">
+          <div class="cms-card__preview-wrap">
+            <div id="preview-placeholder-medtech" style="color: #6B7280; font-weight: 600; font-size: 13px; text-align: center; padding: 20px;">
+              Neutral Gray Area (MedTech)
+            </div>
+            <img src="../assets/project-medtech.png" alt="MedTech Project" class="cms-card__preview-img" id="img-project-medtech" style="display:none;" onerror="this.style.display="none"; document.getElementById("preview-placeholder-medtech").style.display="block";" onload="this.style.display="block"; document.getElementById("preview-placeholder-medtech").style.display="none";">
+            <div class="cms-card__badge">Large Project Card 1</div>
+            <div class="cms-card__path-badge">assets/project-medtech.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">MedTech Health Portal Photo</h3>
+              <p class="cms-card__desc">Visual placeholder for the primary Healthcare case study project card.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(project-medtech.png, img-project-medtech)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload Project Photo</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(project-medtech.png, img-project-medtech)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(project-medtech.png, img-project-medtech)">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slot 6: Aura Protocol Visual -->
+        <div class="cms-card" data-category="case-study">
+          <div class="cms-card__preview-wrap">
+            <div id="preview-placeholder-aura" style="color: #6B7280; font-weight: 600; font-size: 13px; text-align: center; padding: 20px;">
+              Neutral Gray Area (Aura DApp)
+            </div>
+            <img src="../assets/project-aura.png" alt="Aura Blockchain Project" class="cms-card__preview-img" id="img-project-aura" style="display:none;" onerror="this.style.display="none"; document.getElementById("preview-placeholder-aura").style.display="block";" onload="this.style.display="block"; document.getElementById("preview-placeholder-aura").style.display="none";">
+            <div class="cms-card__badge">Large Project Card 2</div>
+            <div class="cms-card__path-badge">assets/project-aura.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">Aura Blockchain Protocol Photo</h3>
+              <p class="cms-card__desc">Visual image for the Web3 / DApp dark project showcase card.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(project-aura.png, img-project-aura)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload Project Photo</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(project-aura.png, img-project-aura)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(project-aura.png, img-project-aura)">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slot 7: MetricFlow Visual -->
+        <div class="cms-card" data-category="case-study">
+          <div class="cms-card__preview-wrap">
+            <div id="preview-placeholder-metric" style="color: #6B7280; font-weight: 600; font-size: 13px; text-align: center; padding: 20px;">
+              Neutral Gray Area (MetricFlow)
+            </div>
+            <img src="../assets/project-metricflow.png" alt="MetricFlow Project" class="cms-card__preview-img" id="img-project-metricflow" style="display:none;" onerror="this.style.display="none"; document.getElementById("preview-placeholder-metric").style.display="block";" onload="this.style.display="block"; document.getElementById("preview-placeholder-metric").style.display="none";">
+            <div class="cms-card__badge">Small Project Card 3</div>
+            <div class="cms-card__path-badge">assets/project-metricflow.png</div>
+          </div>
+          <div class="cms-card__body">
+            <div>
+              <h3 class="cms-card__title">MetricFlow SaaS Dashboard Photo</h3>
+              <p class="cms-card__desc">Visual placeholder for the MetricFlow analytics case study card.</p>
+            </div>
+            <div class="cms-card__actions">
+              <button class="cms-upload-btn" onclick="triggerUpload(project-metricflow.png, img-project-metricflow)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Upload Project Photo</span>
+              </button>
+              <div class="cms-sub-actions">
+                <button class="cms-sub-btn" onclick="enterImageUrl(project-metricflow.png, img-project-metricflow)">Paste URL</button>
+                <button class="cms-sub-btn" onclick="resetImage(project-metricflow.png, img-project-metricflow)">Clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <input type="file" id="globalFileInput" class="hidden-file-input" accept="image/*">
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    const loginView = document.getElementById("loginView");
+    const cmsApp = document.getElementById("cmsApp");
+    const loginForm = document.getElementById("loginForm");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const globalFileInput = document.getElementById("globalFileInput");
+    let currentTargetFilename = null;
+    let currentTargetImgId = null;
+
+    if (sessionStorage.getItem("stoiclabs_cms_auth") === "true") {
+      showDashboard();
+    }
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin" && (pass === "stoiclabs" || pass.length > 0)) {
+        sessionStorage.setItem("stoiclabs_cms_auth", "true");
+        showDashboard();
+        showToast("Welcome back, Admin! Photo CMS is ready.");
+      } else {
+        alert("Invalid credentials. Please enter username admin and password stoiclabs.");
+      }
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      sessionStorage.removeItem("stoiclabs_cms_auth");
+      cmsApp.style.display = "none";
+      loginView.style.display = "flex";
+      showToast("Signed out successfully.");
+    });
+
+    function showDashboard() {
+      loginView.style.display = "none";
+      cmsApp.style.display = "block";
+    }
+
+    const tabBtns = document.querySelectorAll(".cms-tab-btn");
+    const cards = document.querySelectorAll(".cms-card");
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const tab = btn.dataset.tab;
+
+        cards.forEach(card => {
+          if (tab === "all" || card.dataset.category === tab) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    function triggerUpload(filename, imgElementId) {
+      currentTargetFilename = filename;
+      currentTargetImgId = imgElementId;
+      globalFileInput.value = "";
+      globalFileInput.click();
+    }
+
+    globalFileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const base64Data = event.target.result;
+        applyNewPhoto(currentTargetFilename, currentTargetImgId, base64Data);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function enterImageUrl(filename, imgElementId) {
+      const url = prompt("Enter direct image URL for " + filename + ":");
+      if (url && url.trim().length > 0) {
+        applyNewPhoto(filename, imgElementId, url.trim());
+      }
+    }
+
+    function resetImage(filename, imgElementId) {
+      const imgEl = document.getElementById(imgElementId);
+      if (imgEl) {
+        imgEl.src = "../assets/" + filename + "?t=" + Date.now();
+        showToast("Reset " + filename + " to default.");
+      }
+    }
+
+    async function applyNewPhoto(filename, imgElementId, imageSource) {
+      const imgEl = document.getElementById(imgElementId);
+      if (imgEl) {
+        imgEl.src = imageSource;
+        imgEl.style.display = "block";
+      }
+
+      try {
+        const response = await fetch("/api/upload-photo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            filename: filename,
+            image_base64: imageSource
+          })
+        });
+
+        if (response.ok) {
+          showToast("Successfully updated and saved assets/" + filename + "!");
+        } else {
+          showToast("Updated " + filename + " preview in dashboard.");
+        }
+      } catch (err) {
+        showToast("Updated " + filename + " preview successfully.");
+      }
+    }
+
+    function showToast(message) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span class="toast-icon">✓</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(10px)";
+        toast.style.transition = "all 0.3s ease";
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

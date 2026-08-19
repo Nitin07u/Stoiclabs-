@@ -1,0 +1,317 @@
+/* Reusable component styles */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+}
+
+.btn--primary:hover {
+  background: #1a1a1f;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--secondary {
+  background: var(--color-white);
+  color: var(--color-black);
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-gray-400);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-black);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-white);
+}
+
+.btn--text {
+  background: none;
+  color: var(--color-black);
+  padding: 0;
+  border: none;
+}
+
+.btn--text:hover {
+  color: var(--color-gray-600);
+}
+
+.btn--icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--white {
+  background: var(--color-white);
+  color: var(--color-black);
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+}
+
+.btn--white:hover {
+  background: var(--color-gray-100);
+  transform: translateY(-1px);
+}
+
+.btn--sm {
+  padding: 8px 18px;
+  font-size: var(--fs-xs);
+}
+
+.btn--lg {
+  padding: 18px 36px;
+  font-size: var(--fs-base);
+}
+
+/* Cards */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  position: relative;
+}
+
+.card--dark {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.card--bordered {
+  border: 1px solid var(--color-gray-200);
+}
+
+.card--hover {
+  transition: var(--transition-base);
+}
+
+.card--hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Stat Card */
+.stats-card {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stats-card__number {
+  font-size: var(--fs-6xl);
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.stats-card__label {
+  font-size: var(--fs-base);
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: var(--space-1);
+}
+
+.stats-card__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+.stats-card__dot {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-circle);
+  background: var(--color-gray-600);
+}
+
+.stats-card__plus {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-circle);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Filter Pills */
+.filter-pill {
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.filter-pill:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.filter-pill--active {
+  background: var(--color-accent);
+  color: var(--color-black);
+  border-color: var(--color-accent);
+}
+
+/* Play Button */
+.play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-circle);
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 8px rgba(153, 207, 99, 0.2);
+  transition: var(--transition-base);
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 12px rgba(153, 207, 99, 0.25);
+}
+
+/* Blog Card */
+.blog-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card__image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: var(--color-gray-100);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.blog-card__category {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-1);
+}
+
+.blog-card__title {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  margin-bottom: var(--space-1);
+}
+
+.blog-card__excerpt {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-600);
+  line-height: var(--lh-normal);
+  margin-bottom: var(--space-3);
+  flex: 1;
+}
+
+.blog-card__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-circle);
+  background: var(--color-black);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+/* FAQ Item */
+.faq__item {
+  border-bottom: 1px solid var(--color-gray-200);
+  padding: var(--space-3) 0;
+}
+
+.faq__item:first-child {
+  padding-top: 0;
+}
+
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+}
+
+.faq__toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-circle);
+  border: 1px solid var(--color-gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.faq__item--open .faq__toggle {
+  background: var(--color-black);
+  border-color: var(--color-black);
+  color: var(--color-white);
+  transform: rotate(45deg);
+}
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: var(--fs-sm);
+  color: var(--color-gray-600);
+  line-height: var(--lh-relaxed);
+}
+
+.faq__item--open .faq__answer {
+  max-height: 200px;
+  padding-top: var(--space-2);
+}

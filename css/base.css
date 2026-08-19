@@ -1,0 +1,97 @@
+/* Base typography and body styles */
+body {
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+.heading-display {
+  font-size: var(--fs-7xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.heading-xl {
+  font-size: var(--fs-5xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+}
+
+.heading-lg {
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+}
+
+.heading-md {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+}
+
+.heading-sm {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+}
+
+/* Text utility classes */
+.text-xl {
+  font-size: var(--fs-xl);
+}
+
+.text-lg {
+  font-size: var(--fs-lg);
+}
+
+.text-base {
+  font-size: var(--fs-base);
+}
+
+.text-sm {
+  font-size: var(--fs-sm);
+}
+
+.text-xs {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+.text-gray {
+  color: var(--color-gray-600);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+}
+
+/* Focus visible outlines */
+:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 4px;
+}
