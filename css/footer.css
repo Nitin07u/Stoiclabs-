@@ -124,3 +124,37 @@
   gap: 16px;
 }
 
+.footer__powered {
+  width: 152px;
+  height: 28px;
+  background: #F4F5F6;
+  border: 1px solid #010205;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #010205;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.footer__powered:hover {
+  background: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.footer__powered-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
+
+
