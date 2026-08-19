@@ -1,0 +1,19 @@
+{
+  "name": "stoiclabs",
+  "version": "1.0.0",
+  "description": "STOICLABS — Modern Digital Solutions Agency Website & Case Studies",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 8080 .",
+    "serve": "npx serve .",
+    "build": "echo 'Build complete.'"
+  },
+  "keywords": [
+    "stoiclabs",
+    "agency",
+    "case-studies",
+    "digital-solutions"
+  ],
+  "author": "STOICLABS",
+  "license": "ISC"
+}
