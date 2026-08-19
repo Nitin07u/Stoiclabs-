@@ -156,60 +156,80 @@
   transition: transform var(--transition-base), opacity var(--transition-fast);
 }
 
-.nav__hamburger--active .nav__hamburger-line:nth-child(1) {
+.nav__hamburger--active .nav__hamburger-line:nth-child(1),
+.nav__hamburger.active .nav__hamburger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-.nav__hamburger--active .nav__hamburger-line:nth-child(2) {
+.nav__hamburger--active .nav__hamburger-line:nth-child(2),
+.nav__hamburger.active .nav__hamburger-line:nth-child(2) {
   opacity: 0;
 }
 
-.nav__hamburger--active .nav__hamburger-line:nth-child(3) {
+.nav__hamburger--active .nav__hamburger-line:nth-child(3),
+.nav__hamburger.active .nav__hamburger-line:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Drawer Menu */
 .mobile-menu {
   position: fixed;
-  inset: 0;
-  background: var(--color-white);
-  z-index: 999;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  background: #FFFFFF;
+  z-index: 9999;
   transform: translateX(100%);
-  transition: transform var(--transition-base);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   display: flex;
   flex-direction: column;
-  padding: calc(72px + var(--space-4)) var(--space-4) var(--space-6);
+  padding: 24px 20px 40px;
   overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.mobile-menu--open {
-  transform: translateX(0);
+.mobile-menu--open,
+.mobile-menu.active {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .mobile-menu__links {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-6);
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .mobile-menu__link {
-  font-size: var(--fs-2xl);
-  font-weight: var(--fw-bold);
+  font-size: 20px;
+  font-weight: 700;
   color: var(--color-black);
   text-decoration: none;
   transition: color var(--transition-fast);
-  padding: 8px 0;
-  border-bottom: 1px solid var(--color-gray-100);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: transparent;
 }
 
 .mobile-menu__link:hover {
+  background: var(--color-gray-100);
   color: var(--color-accent);
 }
 
 .mobile-menu__actions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 12px;
   margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-gray-200);
 }
+
