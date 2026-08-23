@@ -31,7 +31,13 @@ export default function ValueEnginePage() {
 
           
           <div className="agency-hero__right">
-            <div className="agency-hero__placeholder"></div>
+            <div className="agency-hero__placeholder">
+              <img
+                src="/assets/agency-network.jpg"
+                alt="Our Network of Experts Architecture"
+                className="agency-hero__img"
+              />
+            </div>
           </div>
         </div>
       </div>

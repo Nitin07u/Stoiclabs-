@@ -1914,6 +1914,15 @@ a.contact-info-row__val:hover {
   height: 380px;
   background: #D5D7DA;
   border-radius: 28px;
+  overflow: hidden;
+}
+
+.agency-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
 }
 
 /* Agency Category Filter Pills */

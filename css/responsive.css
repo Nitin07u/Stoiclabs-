@@ -466,6 +466,31 @@ img, svg, video {
     border-radius: 20px !important;
   }
 
+  /* Agency Page (Value Engine) */
+  .agency-hero {
+    padding-top: 88px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .agency-hero__grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .agency-hero__right {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .agency-hero__placeholder {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 240px !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 20px !important;
+  }
+
   .contact-form-card {
     padding: 22px 16px !important;
     border-radius: 16px !important;
