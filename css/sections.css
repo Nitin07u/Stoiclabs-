@@ -958,6 +958,15 @@
   height: 100%;
   background: #C4C4C4;
   border-radius: 18px;
+  overflow: hidden;
+}
+
+.contact-hero__quote-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
 }
 
 /* Contact Main Section (Form + Right Stack) */

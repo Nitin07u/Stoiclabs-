@@ -23,7 +23,11 @@ export default function ContactPage() {
           </div>
           <div className="contact-hero__right">
             <div className="contact-hero__placeholder-outer">
-              <div className="contact-hero__placeholder-inner"></div>
+              <img
+                src="/assets/faraday-quote.jpg"
+                alt="Work. Finish. Publish. - Michael Faraday"
+                className="contact-hero__quote-img"
+              />
             </div>
           </div>
         </div>
