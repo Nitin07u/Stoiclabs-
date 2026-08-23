@@ -122,11 +122,11 @@ export default function ContactPage() {
                   </div>
                   <div className="contact-info-row__content">
                     <span className="contact-info-row__label">Email Us</span>
-                    <a href="mailto:hello@stoiclabs.com" className="contact-info-row__val">hello@stoiclabs.com</a>
+                    <a href="mailto:hello@stoiclabs.dev" className="contact-info-row__val">hello@stoiclabs.dev</a>
                   </div>
                 </div>
 
-                
+                {/* Phone Row */}
                 <div className="contact-info-row">
                   <div className="contact-info-row__icon-circle">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#99CF63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -135,11 +135,11 @@ export default function ContactPage() {
                   </div>
                   <div className="contact-info-row__content">
                     <span className="contact-info-row__label">Call Us</span>
-                    <a href="tel:+15551234567" className="contact-info-row__val">+1 (555) 123-4567</a>
+                    <a href="tel:+919810656348" className="contact-info-row__val">+91 9810656348</a>
                   </div>
                 </div>
 
-                
+                {/* Headquarters Location Row */}
                 <div className="contact-info-row">
                   <div className="contact-info-row__icon-circle">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#99CF63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   </div>
                   <div className="contact-info-row__content">
                     <span className="contact-info-row__label">Headquarters</span>
-                    <div className="contact-info-row__val">100 Innovation Dr.<br />San Francisco, CA</div>
+                    <div className="contact-info-row__val">Office -129, Ground Floor, World Trade Center,<br />Fire Brigade Lane, Barakhamba, New Delhi, Delhi</div>
                   </div>
                 </div>
 

@@ -55,9 +55,9 @@ export default function Footer() {
           <div className="footer__col">
             <h4 className="footer__col-title">Contact</h4>
             <ul className="footer__col-links">
-              <li><a href="tel:+15551234567" className="footer__col-link">+1 (555) 123–4567</a></li>
-              <li><a href="mailto:hello@stoiclabs.com" className="footer__col-link">hello@stoiclabs.com</a></li>
-              <li><a href="#" className="footer__col-link">New York, NY</a></li>
+              <li><a href="tel:+919810656348" className="footer__col-link">+91 9810656348</a></li>
+              <li><a href="mailto:hello@stoiclabs.dev" className="footer__col-link">hello@stoiclabs.dev</a></li>
+              <li><a href="#" className="footer__col-link">New Delhi, Delhi</a></li>
             </ul>
           </div>
         </div>
