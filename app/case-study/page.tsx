@@ -90,6 +90,11 @@ export default function CaseStudyPage() {
           
           <article className="work-card work-card--light">
             <div className="work-card__media work-card__media--large">
+              <img
+                src="/assets/curativo-clinic.jpg"
+                alt="Curativo Clinic Rehabilitation Platform"
+                className="work-card__img"
+              />
               <div className="work-card__tags">
                 <span className="work-tag work-tag--light">Healthcare</span>
                 <span className="work-tag work-tag--light">Web Design</span>
@@ -97,17 +102,17 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body">
               <div>
-                <h3 className="work-card__title">MedTech Health Portal</h3>
-                <p className="work-card__desc">Revitalizing patient engagement through a streamlined, accessible healthcare portal, increasing appointments by 45%.</p>
+                <h3 className="work-card__title">Curativo Clinic — Excellence in Rehabilitation</h3>
+                <p className="work-card__desc">A movement towards pain-free living and faster recovery founded by Dr. Vikas Lamba. Scaled into a trusted network of 7 advanced clinics with 30+ professionals through modern digital care and streamlined appointment scheduling.</p>
               </div>
               <div className="work-card__icons">
-                <span className="work-tech-icon" title="Code / Web Development">
+                <span className="work-tech-icon" title="Healthcare Platform">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="16 18 22 12 16 6"></polyline>
                     <polyline points="8 6 2 12 8 18"></polyline>
                   </svg>
                 </span>
-                <span className="work-tech-icon" title="Cloud Infrastructure">
+                <span className="work-tech-icon" title="Booking & Cloud Systems">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
                   </svg>
@@ -119,24 +124,30 @@ export default function CaseStudyPage() {
           
           <article className="work-card work-card--dark">
             <div className="work-card__media work-card__media--large">
+              <img
+                src="/assets/phymed.jpg"
+                alt="Phymed Medical Equipment Platform"
+                className="work-card__img"
+              />
               <div className="work-card__tags">
-                <span className="work-tag work-tag--dark">Web3</span>
-                <span className="work-tag work-tag--dark">DApp</span>
+                <span className="work-tag work-tag--dark">MedTech</span>
+                <span className="work-tag work-tag--dark">B2B & B2C</span>
               </div>
             </div>
             <div className="work-card__body">
               <div>
-                <h3 className="work-card__title">Aura Blockchain Protocol</h3>
-                <p className="work-card__desc">Designing a secure, intuitive decentralized application that simplified token staking and yielded M in TVL in 30 days.</p>
+                <h3 className="work-card__title">Phymed — Medical Equipment & Laser Platform</h3>
+                <p className="work-card__desc">A comprehensive B2B/B2C medical distribution platform sourcing advanced physiotherapy equipment, laser therapy systems (iLux PLUS), and rehabilitation tech for clinics, hospitals, and practitioners.</p>
               </div>
               <div className="work-card__icons">
-                <span className="work-tech-icon" title="Blockchain Protocol">
+                <span className="work-tech-icon" title="E-Commerce & B2B Distribution">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                   </svg>
                 </span>
-                <span className="work-tech-icon" title="Smart Contract Code">
+                <span className="work-tech-icon" title="Medical Tech Catalog">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="16 18 22 12 16 6"></polyline>
                     <polyline points="8 6 2 12 8 18"></polyline>

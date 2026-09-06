@@ -673,6 +673,14 @@
   margin: 0;
 }
 
+.cs-project-card--curativo {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%), url('/assets/curativo-clinic.jpg') center/cover no-repeat !important;
+}
+
+.cs-project-card--phymed {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%), url('/assets/phymed.jpg') center/cover no-repeat !important;
+}
+
 /* ==========================================================================
    Testimonial Section
    ========================================================================== */
@@ -2617,6 +2625,18 @@ a.contact-info-row__val:hover {
   background: #D1D5DB;
   position: relative;
   overflow: hidden;
+}
+
+.work-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.work-card:hover .work-card__img {
+  transform: scale(1.03);
 }
 
 .work-card__media--large {
