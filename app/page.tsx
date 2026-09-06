@@ -186,7 +186,7 @@ export default function HomePage() {
               <span className="cs-project-card__client">Curativo Clinic. 2024</span>
             </div>
             <div className="cs-project-card__footer">
-              <h3 className="cs-project-card__title">Curativo Clinic – Excellence in Rehabilitation ↗</h3>
+              <h3 className="cs-project-card__title">Curativo Clinic – Excellence in Rehabilitation</h3>
             </div>
           </a>
 
@@ -197,7 +197,7 @@ export default function HomePage() {
               <span className="cs-project-card__client">Phymed Solutions. 2024</span>
             </div>
             <div className="cs-project-card__footer">
-              <h3 className="cs-project-card__title">Phymed – Medical Equipment & Laser Platform ↗</h3>
+              <h3 className="cs-project-card__title">Phymed – Medical Equipment & Laser Platform</h3>
             </div>
           </a>
         </div>

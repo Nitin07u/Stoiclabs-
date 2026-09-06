@@ -2716,10 +2716,12 @@ a.contact-info-row__val:hover {
   line-height: 1.25;
   letter-spacing: -0.02em;
   margin-bottom: 10px;
+  text-decoration: none !important;
 }
 
 .work-card__title--small {
   font-size: 19px;
+  text-decoration: none !important;
 }
 
 .work-card--light .work-card__title {
@@ -2734,6 +2736,16 @@ a.contact-info-row__val:hover {
   font-size: 14px;
   line-height: 1.55;
   margin-bottom: 22px;
+  text-decoration: none !important;
+}
+
+.work-card,
+.work-card *,
+.work-card:hover,
+.work-card:focus,
+.work-card:visited,
+.work-card:active {
+  text-decoration: none !important;
 }
 
 .work-card--light .work-card__desc {

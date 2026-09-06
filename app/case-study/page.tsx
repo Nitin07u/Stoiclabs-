@@ -102,7 +102,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body">
               <div>
-                <h3 className="work-card__title">Curativo Clinic — Excellence in Rehabilitation ↗</h3>
+                <h3 className="work-card__title">Curativo Clinic — Excellence in Rehabilitation</h3>
                 <p className="work-card__desc">A movement towards pain-free living and faster recovery founded by Dr. Vikas Lamba. Scaled into a trusted network of 7 advanced clinics with 30+ professionals through modern digital care and streamlined appointment scheduling.</p>
               </div>
               <div className="work-card__icons">
@@ -136,7 +136,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body">
               <div>
-                <h3 className="work-card__title">Phymed — Medical Equipment & Laser Platform ↗</h3>
+                <h3 className="work-card__title">Phymed — Medical Equipment & Laser Platform</h3>
                 <p className="work-card__desc">A comprehensive B2B/B2C medical distribution platform sourcing advanced physiotherapy equipment, laser therapy systems (iLux PLUS), and rehabilitation tech for clinics, hospitals, and practitioners.</p>
               </div>
               <div className="work-card__icons">
@@ -174,7 +174,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body work-card__body--small">
               <div>
-                <h3 className="work-card__title work-card__title--small">Navya Merchandise ↗</h3>
+                <h3 className="work-card__title work-card__title--small">Navya Merchandise</h3>
                 <p className="work-card__desc">Scalable digital infrastructure and enterprise services for global businesses.</p>
               </div>
               <div className="work-card__icons">
@@ -204,7 +204,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body work-card__body--small">
               <div>
-                <h3 className="work-card__title work-card__title--small">Gujarati Calendar App ↗</h3>
+                <h3 className="work-card__title work-card__title--small">Gujarati Calendar App</h3>
                 <p className="work-card__desc">Comprehensive Android app with daily panchang, choghadiya, and festival calendar.</p>
               </div>
               <div className="work-card__icons">
@@ -232,7 +232,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body work-card__body--small">
               <div>
-                <h3 className="work-card__title work-card__title--small">Purejona Fresh ↗</h3>
+                <h3 className="work-card__title work-card__title--small">Purejona Fresh</h3>
                 <p className="work-card__desc">Upcoming farm-to-table organic produce & D2C health food supply platform.</p>
               </div>
               <div className="work-card__icons">
