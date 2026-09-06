@@ -634,6 +634,8 @@
   box-shadow: 0 0 0 8px #707478;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   cursor: pointer;
+  text-decoration: none !important;
+  color: inherit !important;
 }
 
 .cs-project-card:hover {
@@ -2603,6 +2605,9 @@ a.contact-info-row__val:hover {
   flex-direction: column;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   box-sizing: border-box;
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer;
 }
 
 .work-card:hover {
@@ -2613,11 +2618,12 @@ a.contact-info-row__val:hover {
 .work-card--light {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
+  color: #010205 !important;
 }
 
 .work-card--dark {
   background: #010205;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 .work-card__media {

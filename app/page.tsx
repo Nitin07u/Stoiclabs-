@@ -180,26 +180,26 @@ export default function HomePage() {
           </div>
 
           
-          <div className="cs-project-card cs-project-card--curativo" data-category="ui-ux">
+          <a href="https://curativoclinic.com" target="_blank" rel="noopener noreferrer" className="cs-project-card cs-project-card--curativo" data-category="ui-ux">
             <div className="cs-project-card__header">
               <span className="cs-project-card__line"></span>
               <span className="cs-project-card__client">Curativo Clinic. 2024</span>
             </div>
             <div className="cs-project-card__footer">
-              <h3 className="cs-project-card__title">Curativo Clinic – Excellence in Rehabilitation</h3>
+              <h3 className="cs-project-card__title">Curativo Clinic – Excellence in Rehabilitation ↗</h3>
             </div>
-          </div>
+          </a>
 
           
-          <div className="cs-project-card cs-project-card--phymed" data-category="digital">
+          <a href="https://phymed.in" target="_blank" rel="noopener noreferrer" className="cs-project-card cs-project-card--phymed" data-category="digital">
             <div className="cs-project-card__header">
               <span className="cs-project-card__line"></span>
               <span className="cs-project-card__client">Phymed Solutions. 2024</span>
             </div>
             <div className="cs-project-card__footer">
-              <h3 className="cs-project-card__title">Phymed – Medical Equipment & Laser Platform</h3>
+              <h3 className="cs-project-card__title">Phymed – Medical Equipment & Laser Platform ↗</h3>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>

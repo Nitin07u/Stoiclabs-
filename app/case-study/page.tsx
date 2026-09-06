@@ -88,7 +88,7 @@ export default function CaseStudyPage() {
         
         <div className="work-projects__row--large">
           
-          <article className="work-card work-card--light">
+          <a href="https://curativoclinic.com" target="_blank" rel="noopener noreferrer" className="work-card work-card--light">
             <div className="work-card__media work-card__media--large">
               <img
                 src="/assets/curativo-clinic.jpg"
@@ -102,7 +102,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body">
               <div>
-                <h3 className="work-card__title">Curativo Clinic — Excellence in Rehabilitation</h3>
+                <h3 className="work-card__title">Curativo Clinic — Excellence in Rehabilitation ↗</h3>
                 <p className="work-card__desc">A movement towards pain-free living and faster recovery founded by Dr. Vikas Lamba. Scaled into a trusted network of 7 advanced clinics with 30+ professionals through modern digital care and streamlined appointment scheduling.</p>
               </div>
               <div className="work-card__icons">
@@ -119,10 +119,10 @@ export default function CaseStudyPage() {
                 </span>
               </div>
             </div>
-          </article>
+          </a>
 
           
-          <article className="work-card work-card--dark">
+          <a href="https://phymed.in" target="_blank" rel="noopener noreferrer" className="work-card work-card--dark">
             <div className="work-card__media work-card__media--large">
               <img
                 src="/assets/phymed.jpg"
@@ -136,7 +136,7 @@ export default function CaseStudyPage() {
             </div>
             <div className="work-card__body">
               <div>
-                <h3 className="work-card__title">Phymed — Medical Equipment & Laser Platform</h3>
+                <h3 className="work-card__title">Phymed — Medical Equipment & Laser Platform ↗</h3>
                 <p className="work-card__desc">A comprehensive B2B/B2C medical distribution platform sourcing advanced physiotherapy equipment, laser therapy systems (iLux PLUS), and rehabilitation tech for clinics, hospitals, and practitioners.</p>
               </div>
               <div className="work-card__icons">
@@ -155,7 +155,7 @@ export default function CaseStudyPage() {
                 </span>
               </div>
             </div>
-          </article>
+          </a>
         </div>
 
         
