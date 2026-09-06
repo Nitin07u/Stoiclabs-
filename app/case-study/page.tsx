@@ -161,63 +161,91 @@ export default function CaseStudyPage() {
         
         <div className="work-projects__row--small">
           
-          <article className="work-card work-card--light">
-            <div className="work-card__media work-card__media--small"></div>
+          <a href="https://navyamerchandise.com" target="_blank" rel="noopener noreferrer" className="work-card work-card--light">
+            <div className="work-card__media work-card__media--small">
+              <img
+                src="/assets/navya-merchandise.jpg"
+                alt="Navya Merchandise Platform"
+                className="work-card__img"
+              />
+              <div className="work-card__tags">
+                <span className="work-tag work-tag--light">Enterprise</span>
+              </div>
+            </div>
             <div className="work-card__body work-card__body--small">
               <div>
-                <h3 className="work-card__title work-card__title--small">Global Finance Corp</h3>
-                <p className="work-card__desc">Complete digital transformation for a legacy financial institution.</p>
+                <h3 className="work-card__title work-card__title--small">Navya Merchandise ↗</h3>
+                <p className="work-card__desc">Scalable digital infrastructure and enterprise services for global businesses.</p>
               </div>
               <div className="work-card__icons">
-                <span className="work-tech-icon" title="Enterprise Systems">
+                <span className="work-tech-icon" title="Global Business Solution">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                   </svg>
                 </span>
               </div>
             </div>
-          </article>
+          </a>
 
           
-          <article className="work-card work-card--light">
-            <div className="work-card__media work-card__media--small"></div>
+          <a href="https://play.google.com/store/apps/details?id=gujaratipanchang.gujaraticalendar" target="_blank" rel="noopener noreferrer" className="work-card work-card--light">
+            <div className="work-card__media work-card__media--small">
+              <img
+                src="/assets/gujarati-calendar-app.jpg"
+                alt="Gujarati Calendar & Panchang App"
+                className="work-card__img"
+                style={{ objectFit: 'contain', background: '#F56E24' }}
+              />
+              <div className="work-card__tags">
+                <span className="work-tag work-tag--light">Android App</span>
+              </div>
+            </div>
             <div className="work-card__body work-card__body--small">
               <div>
-                <h3 className="work-card__title work-card__title--small">Agency OS in Notion</h3>
-                <p className="work-card__desc">Architecting a scalable operating system to manage 50+ concurrent projects.</p>
+                <h3 className="work-card__title work-card__title--small">Gujarati Calendar App ↗</h3>
+                <p className="work-card__desc">Comprehensive Android app with daily panchang, choghadiya, and festival calendar.</p>
               </div>
               <div className="work-card__icons">
-                <span className="work-tech-icon" title="Workspace & OS Architecture">
+                <span className="work-tech-icon" title="Mobile App & Play Store">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
                   </svg>
                 </span>
               </div>
             </div>
-          </article>
+          </a>
 
           
-          <article className="work-card work-card--dark">
-            <div className="work-card__media work-card__media--small work-card__media--dark-tint"></div>
+          <a href="https://purejonafresh.com" target="_blank" rel="noopener noreferrer" className="work-card work-card--dark">
+            <div className="work-card__media work-card__media--small work-card__media--dark-tint">
+              <img
+                src="/assets/purejona-fresh.jpg"
+                alt="Purejona Fresh - Coming Soon"
+                className="work-card__img"
+              />
+              <div className="work-card__tags">
+                <span className="work-tag work-tag--dark">Coming Soon</span>
+              </div>
+            </div>
             <div className="work-card__body work-card__body--small">
               <div>
-                <h3 className="work-card__title work-card__title--small">MetricFlow SaaS</h3>
-                <p className="work-card__desc">Redesigning core analytics dashboards to reduce user churn by 22%.</p>
+                <h3 className="work-card__title work-card__title--small">Purejona Fresh ↗</h3>
+                <p className="work-card__desc">Upcoming farm-to-table organic produce & D2C health food supply platform.</p>
               </div>
               <div className="work-card__icons">
-                <span className="work-tech-icon" title="Analytics & Metrics">
+                <span className="work-tech-icon" title="D2C Platform">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
                   </svg>
                 </span>
               </div>
             </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>

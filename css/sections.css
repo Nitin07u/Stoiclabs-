@@ -683,6 +683,18 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%), url('/assets/phymed.jpg') center/cover no-repeat !important;
 }
 
+.cs-project-card--navya {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%), url('/assets/navya-merchandise.jpg') center/cover no-repeat !important;
+}
+
+.cs-project-card--app {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%), url('/assets/gujarati-calendar-app.jpg') center/cover no-repeat !important;
+}
+
+.cs-project-card--purejona {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.8) 100%), url('/assets/purejona-fresh.jpg') center/cover no-repeat !important;
+}
+
 /* ==========================================================================
    Testimonial Section
    ========================================================================== */
