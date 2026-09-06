@@ -262,7 +262,7 @@
             <div class="contact-book-card">
               <h3 class="contact-book-card__title">Book a Meeting</h3>
               <p class="contact-book-card__text">Skip the email back-and-forth and jump straight on a call with our strategy team.</p>
-              <a href="#discovery-call" class="contact-book-card__btn">
+              <a href="tel:+919810656348" class="contact-book-card__btn">
                 <span>Schedule Discovery Call</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -395,6 +395,48 @@
           if (hiddenInput) {
             hiddenInput.value = pill.textContent.trim();
           }
+        });
+      });
+
+      // Contact Form submission to hello@stoiclabs.dev
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('userName')?.value || '';
+          const email = document.getElementById('userEmail')?.value || '';
+          const company = document.getElementById('userCompany')?.value || '';
+          const budget = document.getElementById('userBudget')?.value || '';
+          const service = hiddenInput?.value || 'UI/UX Design';
+          const message = document.getElementById('userMessage')?.value || '';
+
+          const subject = encodeURIComponent(`New Project Inquiry from ${name} (${company || 'Individual'})`);
+          const body = encodeURIComponent(
+            `Hello Stoiclabs Team,\n\n` +
+            `You have received a new project inquiry:\n\n` +
+            `• Name: ${name}\n` +
+            `• Email: ${email}\n` +
+            `• Company: ${company || 'N/A'}\n` +
+            `• Budget: ${budget}\n` +
+            `• Service of Interest: ${service}\n\n` +
+            `• Message:\n${message}\n\n` +
+            `Best regards,\n${name}`
+          );
+
+          window.location.href = `mailto:hello@stoiclabs.dev?subject=${subject}&body=${body}`;
+        });
+      }
+
+      // Newsletter Form submission
+      const newsletterForms = document.querySelectorAll('.newsletter-banner__form');
+      newsletterForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailInput = form.querySelector('input[type="email"]');
+          const email = emailInput?.value || '';
+          const subject = encodeURIComponent(`Newsletter Subscription: ${email}`);
+          const body = encodeURIComponent(`Please subscribe ${email} to the Stoiclabs Network weekly digest.`);
+          window.location.href = `mailto:hello@stoiclabs.dev?subject=${subject}&body=${body}`;
         });
       });
     });

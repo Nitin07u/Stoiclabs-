@@ -5,10 +5,41 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState("UI/UX Design");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const company = formData.get("company") as string;
+    const budget = formData.get("budget") as string;
+    const message = formData.get("message") as string;
+
+    const subject = encodeURIComponent(`New Project Inquiry from ${name} (${company || "Individual"})`);
+    const body = encodeURIComponent(
+      `Hello Stoiclabs Team,\n\n` +
+      `You have received a new project inquiry:\n\n` +
+      `• Name: ${name}\n` +
+      `• Email: ${email}\n` +
+      `• Company: ${company || "N/A"}\n` +
+      `• Budget: ${budget}\n` +
+      `• Service of Interest: ${selectedService}\n\n` +
+      `• Message:\n${message}\n\n` +
+      `Best regards,\n${name}`
+    );
+
+    window.location.href = `mailto:hello@stoiclabs.dev?subject=${subject}&body=${body}`;
     setSubmitted(true);
+  };
+
+  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const subject = encodeURIComponent(`Newsletter Subscription: ${email}`);
+    const body = encodeURIComponent(`Please subscribe ${email} to the Stoiclabs Network weekly digest.`);
+    window.location.href = `mailto:hello@stoiclabs.dev?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -43,7 +74,7 @@ export default function ContactPage() {
           <div className="contact-form-card">
             <h2 className="contact-form-card__title">Send us a message</h2>
             
-            <form id="contactForm" action="#" method="POST" className="contact-form">
+            <form id="contactForm" onSubmit={handleSubmit} className="contact-form">
               
               <div className="contact-form__row">
                 <div className="contact-form__group">
@@ -65,8 +96,8 @@ export default function ContactPage() {
                 <div className="contact-form__group">
                   <label htmlFor="userBudget" className="contact-form__label">Budget</label>
                   <div className="contact-form__select-wrap">
-                    <select id="userBudget" name="budget" className="contact-form__select">
-                      <option value="$10k-$25k" selected>$10k - $25k</option>
+                    <select id="userBudget" name="budget" className="contact-form__select" defaultValue="$10k-$25k">
+                      <option value="$10k-$25k">$10k - $25k</option>
                       <option value="$25k-$50k">$25k - $50k</option>
                       <option value="$50k-$100k">$50k - $100k</option>
                       <option value="$100k+">$100k+</option>
@@ -82,11 +113,29 @@ export default function ContactPage() {
               <div className="contact-form__group contact-form__group--full">
                 <label className="contact-form__label">Service of Interest</label>
                 <div className="contact-form__pills">
-                  <button type="button" className="contact-pill" data-service="digital-solution">Digital Solution</button>
-                  <button type="button" className="contact-pill contact-pill--active" data-service="ui-ux-design">UI/UX Design</button>
-                  <button type="button" className="contact-pill" data-service="development">Development</button>
+                  <button
+                    type="button"
+                    className={`contact-pill ${selectedService === "Digital Solution" ? "contact-pill--active" : ""}`}
+                    onClick={() => setSelectedService("Digital Solution")}
+                  >
+                    Digital Solution
+                  </button>
+                  <button
+                    type="button"
+                    className={`contact-pill ${selectedService === "UI/UX Design" ? "contact-pill--active" : ""}`}
+                    onClick={() => setSelectedService("UI/UX Design")}
+                  >
+                    UI/UX Design
+                  </button>
+                  <button
+                    type="button"
+                    className={`contact-pill ${selectedService === "Development" ? "contact-pill--active" : ""}`}
+                    onClick={() => setSelectedService("Development")}
+                  >
+                    Development
+                  </button>
                 </div>
-                <input type="hidden" name="service" id="selectedService" value="UI/UX Design" />
+                <input type="hidden" name="service" id="selectedService" value={selectedService} />
               </div>
 
               
@@ -105,6 +154,24 @@ export default function ContactPage() {
                   </svg>
                 </button>
               </div>
+
+              {submitted && (
+                <div style={{
+                  background: "#010205",
+                  color: "#FFFFFF",
+                  padding: "16px 20px",
+                  borderRadius: "14px",
+                  marginTop: "16px",
+                  textAlign: "center",
+                  border: "1px solid rgba(153, 207, 99, 0.4)"
+                }}>
+                  <div style={{ color: "#99CF63", fontSize: "20px", marginBottom: "4px" }}>✓</div>
+                  <h4 style={{ fontWeight: 700, fontSize: "15px", marginBottom: "4px" }}>Opening draft to hello@stoiclabs.dev</h4>
+                  <p style={{ color: "#878C91", fontSize: "13px", margin: 0 }}>
+                    Your email client is opening with prefilled details. You can also write directly to <a href="mailto:hello@stoiclabs.dev" style={{ color: "#99CF63", textDecoration: "underline" }}>hello@stoiclabs.dev</a>.
+                  </p>
+                </div>
+              )}
             </form>
           </div>
 
@@ -177,7 +244,7 @@ export default function ContactPage() {
             <div className="contact-book-card">
               <h3 className="contact-book-card__title">Book a Meeting</h3>
               <p className="contact-book-card__text">Skip the email back-and-forth and jump straight on a call with our strategy team.</p>
-              <a href="#discovery-call" className="contact-book-card__btn">
+              <a href="tel:+919810656348" className="contact-book-card__btn">
                 <span>Schedule Discovery Call</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -202,8 +269,8 @@ export default function ContactPage() {
             <p className="newsletter-banner__text">Get a weekly digest of our best content, curated resources, and agency insights delivered straight to your inbox.</p>
           </div>
           <div className="newsletter-banner__right">
-            <form className="newsletter-banner__form" action="#" method="POST">
-              <input type="email" className="newsletter-banner__input" placeholder="Enter your email" required />
+            <form className="newsletter-banner__form" onSubmit={handleNewsletterSubmit}>
+              <input type="email" name="email" className="newsletter-banner__input" placeholder="Enter your email" required />
               <button type="submit" className="newsletter-banner__btn">
                 <span>Subscribe</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

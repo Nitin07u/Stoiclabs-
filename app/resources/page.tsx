@@ -210,7 +210,7 @@ export default function ResourcesPage() {
             <p className="newsletter-banner__text">Get a weekly digest of our best content, curated resources, and agency insights delivered straight to your inbox.</p>
           </div>
           <div className="newsletter-banner__right">
-            <form className="newsletter-banner__form" action="#" method="POST">
+            <form className="newsletter-banner__form" action="mailto:hello@stoiclabs.dev" method="POST" encType="text/plain">
               <input type="email" className="newsletter-banner__input" placeholder="Enter your email" required />
               <button type="submit" className="newsletter-banner__btn">
                 <span>Subscribe</span>
