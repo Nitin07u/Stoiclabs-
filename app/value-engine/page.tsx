@@ -75,40 +75,48 @@ export default function ValueEnginePage() {
         <div className="featured-partners__grid">
           
           
-          <article className="partner-card partner-card--dark" data-category="seo solution">
+          {/* Card 01: Sparx Haus (Dark Card) */}
+          <a 
+            href="https://www.instagram.com/sparxhaus/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="partner-card partner-card--dark" 
+            data-category="seo solution"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <div className="partner-card__bg-overlay"></div>
             
             <div className="partner-card__top">
-              <div className="partner-card__icon-box partner-card__icon-box--white">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#010205" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
+              <div className="partner-card__icon-box partner-card__icon-box--white" style={{ overflow: 'hidden', padding: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img 
+                  src="/assets/sparxhaus-avatar.png" 
+                  alt="Sparx Haus Logo" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
+                />
               </div>
               <div className="partner-card__rating">
                 <span className="partner-card__star">★</span>
-                <span>4.9</span>
+                <span>5.0</span>
               </div>
             </div>
 
             <div className="partner-card__body">
-              <span className="partner-card__category">GLOBAL REACH</span>
-              <h3 className="partner-card__title">Nexus Digital Group</h3>
-              <p className="partner-card__desc">Enterprise-grade SEO and holistic digital Solution strategies for Fortune 500 companies.</p>
+              <span className="partner-card__category">PHYSIO MARKETING</span>
+              <h3 className="partner-card__title">Sparx Haus</h3>
+              <p className="partner-card__desc">World&apos;s FIRST physiotherapist marketing agency. Driving leads over likes with 100M+ views generated for clinics &amp; rehabilitation centers.</p>
             </div>
 
             <div className="partner-card__stats">
               <div className="partner-card__stat">
-                <span className="partner-card__stat-val">10+</span>
-                <span className="partner-card__stat-label">Years Exp.</span>
+                <span className="partner-card__stat-val">100M+</span>
+                <span className="partner-card__stat-label">Views Generated</span>
               </div>
               <div className="partner-card__stat">
-                <span className="partner-card__stat-val">24</span>
-                <span className="partner-card__stat-label">Countries Served</span>
+                <span className="partner-card__stat-val">1st</span>
+                <span className="partner-card__stat-label">Physio Marketing Agency</span>
               </div>
             </div>
-          </article>
+          </a>
 
           
           <article className="partner-card partner-card--light" data-category="uiux">
